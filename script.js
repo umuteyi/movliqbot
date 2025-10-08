@@ -588,7 +588,7 @@ let isRoomCheckRunning = false;
 // Belirli aralıklarla odaları kontrol edip katılma işlemi
 function startRoomCheckProcess() {
   // Her 60 saniyede bir kontrol (daha uzun aralık)
-  const CHECK_INTERVAL = 60 * 1000; // 60 saniye
+  const CHECK_INTERVAL = 30 * 1000; // 60 saniye
 
   console.log("Oda kontrol sistemi başlatılıyor...");
 
