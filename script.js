@@ -498,7 +498,7 @@ async function checkAndJoinRooms() {
     );
 
     // Eğer oda oluşturulalı 1 dakikadan fazla olduysa katıl
-    if (minutesSinceCreation >= 0.5) {
+    if (minutesSinceCreation >= 1) {
       console.log(
         `Oda ${room.id} oluşturulalı 1 dakikadan fazla oldu, katılım sağlanıyor...`,
       );
