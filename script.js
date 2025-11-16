@@ -498,7 +498,7 @@ async function checkAndJoinRooms() {
     );
 
     // Eğer oda oluşturulalı 1 dakikadan fazla olduysa katıl
-    if (minutesSinceCreation >= 1) {
+    if (minutesSinceCreation >= 0.5) {
       console.log(
         `Oda ${room.id} oluşturulalı 1 dakikadan fazla oldu, katılım sağlanıyor...`,
       );
@@ -588,7 +588,7 @@ let isRoomCheckRunning = false;
 // Belirli aralıklarla odaları kontrol edip katılma işlemi
 function startRoomCheckProcess() {
   // Her 60 saniyede bir kontrol (daha uzun aralık)
-  const CHECK_INTERVAL = 10 * 1000; // 60 saniye
+  const CHECK_INTERVAL = 10 * 500; // 60 saniye
 
   console.log("Oda kontrol sistemi başlatılıyor...");
 
@@ -664,7 +664,7 @@ async function loginSequentially() {
     }
 
     // Her istek arasında bekletme (istek limiti vs. önlemek için)
-    await new Promise((resolve) => setTimeout(resolve, 3000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
   }
 
   console.log(`Aktif kullanıcı sayısı: ${activeUsers.length}`);
