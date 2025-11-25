@@ -389,7 +389,7 @@ async function connectToSignalR(email, accessToken, roomId) {
 }
 
 // İki tarih arasındaki dakika farkını hesaplayan yardımcı fonksiyon
-function getMinutesBetweenDates(startDate, endDate) {
+function getsBetweenDates(startDate, endDate) {
   const start = new Date(startDate);
   const end = new Date(endDate);
   const diffMs = end - start;
@@ -491,14 +491,14 @@ async function checkAndJoinRooms() {
   // Tüm aktif odaları kontrol et (72 saat kuralı kaldırıldı)
   for (const room of activeRooms) {
     const createdAt = new Date(room.createdAt);
-    const minutesSinceCreation = getMinutesBetweenDates(createdAt, now);
+    const sSinceCreation = getsBetweenDates(createdAt, now);
 
     console.log(
-      `Oda ${room.id}: "${room.roomName}" - Oluşturulma üzerinden geçen süre: ${minutesSinceCreation} dakika`,
+      `Oda ${room.id}: "${room.roomName}" - Oluşturulma üzerinden geçen süre: ${sSinceCreation} dakika`,
     );
 
     // Eğer oda oluşturulalı 1 dakikadan fazla olduysa katıl
-    if (minutesSinceCreation >= 1) {
+    if (minutesSinceCreation >= 0) {
       console.log(
         `Oda ${room.id} oluşturulalı 1 dakikadan fazla oldu, katılım sağlanıyor...`,
       );
