@@ -1,6 +1,9 @@
+
 const axios = require("axios");
 require("dotenv").config();
 const SignalRService = require("./signalRService");
+
+console.log("### BOT SCRIPT VERSION 3 - ", new Date().toISOString());
 
 // API endpoint
 const BASE_URL = "https://backend.movliq.com/api";
