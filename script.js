@@ -146,7 +146,7 @@ const lastJoinRequests = {};
 const roomStatus = {};
 
 // Odaya istekleri arasındaki bekleme süresi (milisaniye)
-const JOIN_REQUEST_DELAY = 15000; // 15 saniye
+const JOIN_REQUEST_DELAY = 2000; // 2 saniye
 
 // Oda kilitleme mekanizması - aynı anda birden fazla botun aynı odaya katılmasını engeller
 const roomLocks = {};
@@ -491,7 +491,7 @@ async function checkAndJoinRooms() {
   // Tüm aktif odaları kontrol et (72 saat kuralı kaldırıldı)
   for (const room of activeRooms) {
     const createdAt = new Date(room.createdAt);
-    const sSinceCreation = getsBetweenDates(createdAt, now);
+    const minutesSinceCreation = getsBetweenDates(createdAt, now);
 
     console.log(
       `Oda ${room.id}: "${room.roomName}" - Oluşturulma üzerinden geçen süre: ${sSinceCreation} dakika`,
@@ -588,7 +588,7 @@ let isRoomCheckRunning = false;
 // Belirli aralıklarla odaları kontrol edip katılma işlemi
 function startRoomCheckProcess() {
   // Her 60 saniyede bir kontrol (daha uzun aralık)
-  const CHECK_INTERVAL = 10 * 500; // 60 saniye
+  const CHECK_INTERVAL = 10 * 500; // 5 saniye
 
   console.log("Oda kontrol sistemi başlatılıyor...");
 
