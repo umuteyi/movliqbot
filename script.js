@@ -524,7 +524,7 @@ async function checkAndJoinRooms() {
 
           if (remainingWaitTime > 0) {
             console.log(
-              `⏳ ${remainingWaitTime / 1000} saniye bekleniyor... (Katılım süresi: ${joinDuration}ms)`,
+              `⏳ ${remainingWaitTime} saniye bekleniyor... (Katılım süresi: ${joinDuration}ms)`,
             );
             await new Promise((resolve) =>
               setTimeout(resolve, remainingWaitTime),
